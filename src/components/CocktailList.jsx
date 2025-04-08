@@ -2,11 +2,12 @@ import CocktailCard from "./CocktailCard";
 import Wrapper from "../assets/wrappers/CocktailList";
 
 const CocktailList = ({ drinks }) => {
-  if (!drinks) {
+  if (!Array.isArray(drinks) || drinks.length === 0) {
     return (
       <h4 style={{ textAlign: "center" }}>No matching cocktails found...</h4>
     );
   }
+
 
   const formattedDrinks = drinks.map((item) => {
     const { idDrink, strDrink, strDrinkThumb, strAlcoholic, strGlass } = item;
